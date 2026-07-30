@@ -14,6 +14,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -21,6 +22,7 @@ body {
   color: var(--text);
   background: linear-gradient(135deg, #fff 0%, #fff4f8 100%);
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
 a {
@@ -357,3 +359,5 @@ h1, h2, h3, h4 {
     padding: 70px 0;
   }
 }
+
+
