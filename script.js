@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', showButton);
   showButton();
 
+  // Testimonials Cycle
   const testimonialCards = Array.from(document.querySelectorAll('.testimonial-card'));
   let activeIndex = 0;
 
@@ -25,11 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  setInterval(() => {
-    activeIndex = (activeIndex + 1) % testimonialCards.length;
-    showTestimonial(activeIndex);
-  }, 5000);
+  if (testimonialCards.length > 0) {
+    setInterval(() => {
+      activeIndex = (activeIndex + 1) % testimonialCards.length;
+      showTestimonial(activeIndex);
+    }, 5000);
+  }
 
+  // Appointment Form submission
   const appointmentForm = document.getElementById('appointmentForm');
   const formMessage = document.getElementById('formMessage');
 
