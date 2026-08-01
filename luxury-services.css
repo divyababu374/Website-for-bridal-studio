@@ -679,3 +679,107 @@
 @keyframes spinner-rotate {
   to { transform: rotate(360deg); }
 }
+
+/* Floating Stack Adjustments */
+.scroll-top {
+  bottom: 150px !important;
+}
+
+.floating-whatsapp {
+  bottom: 20px !important;
+}
+
+/* Book Now Pill Floating Button */
+.floating-book-now-pill {
+  position: fixed;
+  bottom: 86px;
+  right: 20px;
+  z-index: 1000;
+  height: 48px;
+  padding: 0 22px;
+  border-radius: 100px;
+  border: 1px solid #20ba5a;
+  background: linear-gradient(180deg, #25D366 0%, #20ba5a 100%);
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.floating-book-now-pill .btn-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+@media (hover: hover) {
+  .floating-book-now-pill:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    padding: 0 26px; /* Slight width expansion */
+  }
+  .floating-book-now-pill:hover .btn-icon {
+    transform: rotate(8deg); /* Rotate icon slightly */
+  }
+}
+
+.floating-book-now-pill:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.15);
+}
+
+/* Booking Form Submit Button Styling */
+.btn-whatsapp-submit {
+  background: #25D366 !important;
+  border: 1px solid #20ba5a !important;
+  color: #FFFFFF !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.25) !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.25s ease;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+  .btn-whatsapp-submit:hover {
+    background: #20ba5a !important;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4) !important;
+    color: #FFFFFF !important;
+  }
+}
+
+.btn-whatsapp-submit:active {
+  transform: scale(0.97);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.15);
+}
+
+/* Booking Form Highlight Lift & Pulse Animation */
+.loading-subtext {
+  font-size: 13px;
+  font-weight: 400;
+  color: #6a5265;
+  margin-top: -8px;
+}
+
+@keyframes greenGlowPulse {
+  0% { transform: translateY(0); box-shadow: 0 10px 30px rgba(233, 30, 99, 0.12); border-color: rgba(212, 175, 122, 0.3); }
+  50% { transform: translateY(-4px); box-shadow: 0 0 30px rgba(37, 211, 102, 0.6); border-color: rgba(37, 211, 102, 1); }
+  100% { transform: translateY(0); box-shadow: 0 10px 30px rgba(233, 30, 99, 0.12); border-color: rgba(212, 175, 122, 0.3); }
+}
+
+.form-green-pulse {
+  animation: greenGlowPulse 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}

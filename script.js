@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Format WhatsApp Message
       const message = `*🌸 INDHU BRIDAL STUDIO & BEAUTY CARE*
 
-*✨ New Booking Request*
+*✨ New Booking Request from website*
 
 👤 Name: ${name}
 📞 Phone: ${phone}
@@ -76,15 +76,42 @@ document.addEventListener('DOMContentLoaded', () => {
 📝 Notes: ${notes}
 
 Please confirm my appointment at your earliest convenience.
-Thank you! 🙏`;
+Thank you!`;
 
       // Redirect to WhatsApp
-      const whatsappURL = `https://wa.me/918637455316?text=${encodeURIComponent(message)}`;
+      const whatsappURL = `https://wa.me/919342491694?text=${encodeURIComponent(message)}`;
       window.open(whatsappURL, '_blank');
 
       // Reset form and hide loading state
       appointmentForm.reset();
       loadingState?.classList.remove('is-loading');
     }, 700); // 700ms loading state
+  });
+
+  // Scroll to Booking Form on "Book Now" click
+  const floatingBookBtn = document.getElementById('floatingBookBtn');
+  const bookingFormCard = appointmentForm?.closest('.contact-card');
+
+  floatingBookBtn?.addEventListener('click', () => {
+    if (bookingFormCard) {
+      // Smoothly scroll form into center of viewport
+      bookingFormCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Highlight form with soft green glow pulse after scroll completes
+      setTimeout(() => {
+        bookingFormCard.classList.add('form-green-pulse');
+        
+        // Desktop only: Focus name input
+        if (window.innerWidth > 768) {
+          const nameInput = document.getElementById('bookingName');
+          nameInput?.focus();
+        }
+
+        // Clean up glow class after pulse finishes
+        setTimeout(() => {
+          bookingFormCard.classList.remove('form-green-pulse');
+        }, 1200);
+      }, 800); // Wait 800ms for smooth scroll transition to align
+    }
   });
 });
