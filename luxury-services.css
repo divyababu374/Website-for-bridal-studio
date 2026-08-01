@@ -1,0 +1,385 @@
+/* Luxury Services - Framer-inspired 3D Coverflow & Pills Grid */
+
+.section-services-redesign {
+  padding: 120px 0;
+  background-color: #FAF9F6; /* Soft, warm, luxury background */
+  overflow: hidden;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Heading Spacing & Typography */
+.services-heading {
+  text-align: center;
+  margin-bottom: 4rem; /* Generous white space */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+.services-heading .eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-gold, #D4AF7A);
+  margin-bottom: 1rem;
+}
+
+.services-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: #290d25; /* Match luxury theme colors */
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+
+.services-heading .subtitle {
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  color: #6a5265;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Carousel Controls: Counter and Progress Bar */
+.carousel-controls-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 4rem; /* Generous white space between heading controls and carousel */
+}
+
+.services-counter {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #290d25;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+}
+
+.services-counter .current-slide {
+  color: var(--accent-gold, #D4AF7A);
+  display: inline-block;
+  min-width: 24px;
+  text-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.services-counter .current-slide.num-change {
+  transform: translateY(-8px);
+  opacity: 0;
+}
+
+.services-counter .separator {
+  opacity: 0.5;
+}
+
+.services-counter .total-slides {
+  opacity: 0.7;
+}
+
+/* Progress Line Bar */
+.services-progress-bar {
+  width: 140px;
+  height: 2px;
+  background-color: rgba(212, 175, 122, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.services-progress-bar .progress-fill {
+  height: 100%;
+  width: 25%;
+  background-color: var(--accent-gold, #D4AF7A);
+  border-radius: 2px;
+  transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 3D Coverflow Carousel Layout */
+.coverflow-container {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  margin: 0 auto;
+  perspective: 1200px;
+  overflow: visible;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+}
+
+.coverflow-container:active {
+  cursor: grabbing;
+}
+
+.coverflow-track {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Slide Wrapper & 3D placement */
+.coverflow-slide {
+  position: absolute;
+  width: 340px;
+  height: 480px;
+  left: -170px; /* Center alignment offset */
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), 
+              opacity 1s cubic-bezier(0.25, 1, 0.5, 1), 
+              filter 1s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform, opacity, filter;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.coverflow-slide.visible-slide {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Premium Editorial Card */
+.luxury-service-card {
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(212, 175, 122, 0.3);
+  border-radius: 30px;
+  box-shadow: 0 12px 36px rgba(41, 13, 37, 0.04), 0 4px 12px rgba(212, 175, 122, 0.02);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Desktop Interaction */
+@media (hover: hover) {
+  .luxury-service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 48px rgba(212, 175, 122, 0.16), 0 4px 16px rgba(41, 13, 37, 0.02);
+    border-color: rgba(212, 175, 122, 0.9);
+  }
+
+  .luxury-service-card:hover .card-image-wrapper img {
+    transform: scale(1.06);
+  }
+}
+
+/* Card Tap/Click Animation */
+.luxury-service-card:active {
+  transform: translateY(-4px) scale(0.97);
+  transition: transform 0.15s ease;
+}
+
+/* 75% Image Wrapper */
+.card-image-wrapper {
+  width: 100%;
+  height: 75%;
+  overflow: hidden;
+  position: relative;
+  background-color: #f6f5f2;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+/* Active slide image Ken Burns zoom animation over 5 seconds */
+@keyframes activeKenBurns {
+  0% { transform: scale(1.00); }
+  100% { transform: scale(1.08); }
+}
+
+.coverflow-slide.active-slide .luxury-service-card .card-image-wrapper img {
+  animation: activeKenBurns 5s linear forwards;
+}
+
+/* 25% Content Wrapper */
+.card-content-wrapper {
+  width: 100%;
+  height: 25%;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #FFFFFF;
+}
+
+.card-content-wrapper h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #290d25;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.card-content-wrapper p {
+  font-size: 0.88rem;
+  color: #6a5265;
+  margin: 0;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ripple effect container */
+.card-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(212, 175, 122, 0.3);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Additional Beauty Services Spacing & Section */
+.additional-services-container {
+  margin-top: 6.5rem; /* Generous white space before Additional Services */
+  text-align: center;
+}
+
+.additional-services-container h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #290d25;
+  margin-bottom: 2.5rem;
+}
+
+/* Pills Responsive Grid */
+.services-pills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 20px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Ivory Pills Style */
+.beauty-service-pill {
+  background-color: #FAF7F0; /* Soft Ivory */
+  border: 1px solid rgba(212, 175, 122, 0.35);
+  color: #4a2842;
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 12px 28px;
+  border-radius: 100px;
+  cursor: default;
+  user-select: none;
+  box-shadow: 0 4px 15px rgba(212, 175, 122, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Pill Hover desktop */
+@media (hover: hover) {
+  .beauty-service-pill:hover {
+    transform: translateY(-3px);
+    background-color: #FFFFFF;
+    border-color: rgba(212, 175, 122, 0.85);
+    box-shadow: 0 8px 20px rgba(212, 175, 122, 0.12);
+  }
+}
+
+/* Pill Tap mobile */
+.beauty-service-pill:active {
+  transform: scale(0.95);
+  background-color: #FFFFFF;
+  transition: transform 0.12s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .section-services-redesign {
+    padding: 90px 0;
+  }
+  .coverflow-container {
+    height: 480px;
+  }
+  .coverflow-slide {
+    width: 300px;
+    height: 430px;
+    left: -150px;
+  }
+  .card-content-wrapper {
+    padding: 18px 22px;
+  }
+  .card-content-wrapper h3 {
+    font-size: 1.2rem;
+  }
+  .additional-services-container {
+    margin-top: 5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-services-redesign {
+    padding: 70px 0;
+  }
+  .coverflow-container {
+    height: 440px;
+  }
+  .coverflow-slide {
+    width: 270px;
+    height: 390px;
+    left: -135px;
+  }
+  .card-content-wrapper {
+    padding: 16px 18px;
+  }
+  .card-content-wrapper h3 {
+    font-size: 1.1rem;
+  }
+  .card-content-wrapper p {
+    font-size: 0.82rem;
+  }
+  .services-pills-grid {
+    gap: 12px 14px;
+  }
+  .beauty-service-pill {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+  .additional-services-container {
+    margin-top: 4rem;
+  }
+}
