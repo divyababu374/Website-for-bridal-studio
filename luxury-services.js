@@ -24,10 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial layout configuration based on viewport width
   const getLayoutConfig = () => {
     const width = window.innerWidth;
+    const firstCard = document.querySelector('.coverflow-slide');
+    const cardWidth = firstCard ? firstCard.offsetWidth : 260;
+
     if (width < 576) {
       // Mobile: One main card + ~20% of side card peeking
       return {
-        spacing: 160,
+        spacing: cardWidth * 0.70,
         rotateY: 15,
         translateZ: -80,
         sideOpacity: 0.5,
@@ -36,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (width < 992) {
       // Tablet: Show ~1.5 cards
       return {
-        spacing: 210,
+        spacing: cardWidth * 0.74,
         rotateY: 20,
         translateZ: -100,
         sideOpacity: 0.65,
@@ -45,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       // Desktop: Center card fully visible + prev/next partially visible
       return {
-        spacing: 260,
+        spacing: cardWidth * 0.76,
         rotateY: 22,
         translateZ: -120,
         sideOpacity: 0.7,
@@ -227,6 +230,48 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCoverflow();
   }, { passive: true });
 
+  // Modal Elements
+  const modal = document.getElementById('serviceModal');
+  const modalImage = document.getElementById('modalServiceImage');
+  const modalTitle = document.getElementById('modalServiceTitle');
+  const modalDesc = document.getElementById('modalServiceDesc');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const modalOverlay = document.getElementById('modalOverlay');
+
+  const openModal = (card) => {
+    const imgEl = card.querySelector('.card-image-wrapper img');
+    const titleEl = card.querySelector('.card-content-wrapper h3');
+    const descEl = card.querySelector('.card-content-wrapper p');
+
+    if (modal && imgEl && titleEl && descEl) {
+      modalImage.src = imgEl.src;
+      modalImage.alt = imgEl.alt;
+      modalTitle.textContent = titleEl.textContent;
+      modalDesc.textContent = descEl.textContent;
+      
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      stopAutoScroll();
+    }
+  };
+
+  const closeModal = () => {
+    if (modal) {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      resetInactivityTimer();
+    }
+  };
+
+  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+  if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+
   // Luxury ripple click animation on individual cards
   const cards = document.querySelectorAll('.luxury-service-card');
   cards.forEach(card => {
@@ -257,14 +302,19 @@ document.addEventListener('DOMContentLoaded', () => {
       stopAutoScroll();
       resetInactivityTimer();
 
-      // 3. Carousel index adjustment if tapping a side card
+      // 3. Carousel index adjustment if tapping a side card, else open modal
       const parentSlide = card.closest('.coverflow-slide');
       if (parentSlide) {
         const slideIndex = slides.indexOf(parentSlide);
-        if (slideIndex !== -1 && slideIndex !== activeIndex) {
-          e.preventDefault();
-          activeIndex = slideIndex;
-          updateCoverflow();
+        if (slideIndex !== -1) {
+          if (slideIndex !== activeIndex) {
+            e.preventDefault();
+            activeIndex = slideIndex;
+            updateCoverflow();
+          } else {
+            // Tapped active card -> Enlarge/Open detail modal
+            openModal(card);
+          }
         }
       }
     });
