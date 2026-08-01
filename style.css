@@ -835,7 +835,6 @@ h1, h2, h3, h4 {
   position: absolute;
   inset: 3% 4% auto 4%;
   height: 94%;
-  border: 1px solid rgba(233, 30, 99, 0.08);
   border-radius: 32px;
   z-index: -1;
   pointer-events: none;
