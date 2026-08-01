@@ -62,41 +62,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       // Format WhatsApp Message
-      const message = `Hello Indhu Bridal Studio & Beauty Care,
+      const message = `*🌸 INDHU BRIDAL STUDIO & BEAUTY CARE*
 
-I would like to book an appointment.
+*✨ New Booking Request*
 
---------------------------------
+👤 Name: ${name}
+📞 Phone: ${phone}
+📍 Venue: ${address || 'Not Provided'}
+🎉 Occasion: ${occasion}
+💄 Service: ${service}
+📅 Date: ${date}
+🕒 Time: ${time}
+📝 Notes: ${notes}
 
-👤 Name:
-${name}
-
-📞 Phone:
-${phone}
-
-📍 Venue Address:
-${address}
-
-🎉 Occasion:
-${occasion}
-
-💄 Service:
-${service}
-
-📅 Preferred Date:
-${date}
-
-🕒 Preferred Time:
-${time}
-
-📝 Additional Notes:
-${notes}
-
---------------------------------
-
-Please confirm my appointment.
-
-Thank you.`;
+Please confirm my appointment at your earliest convenience.
+Thank you! 🙏`;
 
       // Redirect to WhatsApp
       const whatsappURL = `https://wa.me/918637455316?text=${encodeURIComponent(message)}`;
