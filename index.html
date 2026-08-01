@@ -10,66 +10,84 @@
   <title>Indhu Bridal Studio & Beauty Care</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="luxury-hero.css" />
+  <link rel="stylesheet" href="luxury-hero.css?v=3" />
 </head>
 
 <body>
   <!-- Floating Glassmorphism Nav -->
   <nav class="floating-luxury-nav" id="floatingNav" aria-label="Primary">
+    <!-- Desktop Pill Navbar -->
     <div class="floating-nav-desktop">
-      <div class="floating-brand">Luxury Bridal</div>
       <div class="floating-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
+        <a href="#home" class="active">Home</a>
         <a href="#gallery">Gallery</a>
-        <a href="#pricing">Pricing</a>
-        <a href="jewellery.html">Jewellery</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <a href="#contact" class="btn-floating-book">Book Now</a>
-    </div>
-
-    <div class="floating-nav-mobile">
-      <div class="floating-mobile-header">
-        <a href="#booking" class="btn-floating-book-mobile">Book Now</a>
-      </div>
-      <div class="floating-mobile-links">
-        <a href="#home">Home</a>
         <a href="#services">Services</a>
+        <a href="#about">About</a>
         <a href="#testimonials">Reviews</a>
-        <a href="#contact">Location</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
 
+  <!-- Mobile Premium Navigation System -->
+  <div class="mobile-nav-system">
+    <div class="mobile-top-bar" id="mobileTopBar">
+      <div class="mobile-brand">
+        <span class="brand-name">INDHU</span>
+        <span class="brand-sub">Bridal Studio & Beauty Care</span>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+        <span class="menu-bar bar-1"></span>
+        <span class="menu-bar bar-2"></span>
+        <span class="menu-bar bar-3"></span>
+      </button>
+    </div>
+    
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-side-panel" id="mobileMenu">
+      <div class="mobile-panel-header">
+        <div class="mobile-panel-brand">
+          <span class="panel-brand-name">INDHU</span>
+          <span class="panel-brand-sub">Bridal Studio & Beauty Care</span>
+        </div>
+        <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close Menu">
+          <span class="close-icon">&times;</span>
+        </button>
+      </div>
+      <div class="mobile-menu-items">
+        <a href="#home" class="mobile-menu-item" style="--delay: 0.1s;">Home</a>
+        <a href="#gallery" class="mobile-menu-item" style="--delay: 0.2s;">Gallery</a>
+        <a href="#services" class="mobile-menu-item" style="--delay: 0.3s;">Services</a>
+        <a href="#about" class="mobile-menu-item" style="--delay: 0.4s;">About</a>
+        <a href="#testimonials" class="mobile-menu-item" style="--delay: 0.5s;">Reviews</a>
+        <a href="#contact" class="mobile-menu-item" style="--delay: 0.6s;">Contact</a>
+      </div>
+    </div>
+  </div>
+
   <header id="home" class="luxury-hero">
     <!-- Slideshow Images -->
     <div class="hero-slides">
-      <img class="hero-slide active" src="images/indhuakka.jpeg" alt="Luxury Bridal Look 1" />
-      <img class="hero-slide" src="images/indhuakka2.jpeg" alt="Luxury Bridal Look 2" />
-      <img class="hero-slide" src="images/indhuakka3.jpeg" alt="Luxury Bridal Look 3" />
+      <img class="hero-slide active" src="images/indhuakka1.jpeg" alt="Best Bridal Transformation" />
+      <img class="hero-slide" src="images/indhuakka4.jpeg" alt="Makeup in Progress" />
+      <img class="hero-slide" src="images/indhuakka5.jpeg" alt="Side Profile Bridal Look" />
+      <img class="hero-slide" src="images/indhuakka.jpeg" alt="Meet the Artist" />
+      <img class="hero-slide" src="images/indhuakka6.jpeg" alt="Another Premium Bridal Transformation" />
     </div>
 
     <!-- Plum Gradient Overlay -->
     <div class="hero-overlay"></div>
 
-    <!-- Top Transparent Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark top-navbar">
+    <!-- Top Transparent Navbar (Hidden on mobile) -->
+    <nav class="navbar navbar-expand-lg navbar-dark top-navbar d-none d-lg-block">
       <div class="container">
         <a class="navbar-brand fw-bold" href="#home">
-          <span class="brand-accent text-white">Indhu</span> <span style="color: var(--accent-gold, #D4AF7A);">Makeup
-            Artist</span>
+          <span class="brand-accent text-white">Indhu</span> <span style="color: var(--accent-gold, #D4AF7A);">Makeup Artist</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavTop"
-          aria-controls="navbarNavTop" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavTop">
           <ul class="navbar-nav gap-lg-3">
             <li class="nav-item"><a class="nav-link text-white" href="#home">Home</a></li>
@@ -86,16 +104,18 @@
 
     <!-- Hero Content -->
     <div class="hero-content">
-      <span class="luxury-eyebrow">Luxury Bridal Beauty Studio</span>
-      <h1 class="luxury-title">Your Dream Bridal Look Starts Here</h1>
+      <span class="luxury-eyebrow">INDHU BRIDAL STUDIO & BEAUTY CARE</span>
+      <h1 class="luxury-title">Luxury Bridal Makeup for Your Special Day</h1>
       <p class="luxury-description">
-        Professional Bridal Makeup & Beauty Services crafted to make every moment feel timeless.
+        From elegant bridal makeovers to flawless traditional styling, we create timeless looks that make every bride feel beautiful, confident, and unforgettable.
       </p>
-      <div class="luxury-ctas">
-        <a href="#contact" class="btn-luxury-book">Book Appointment</a>
-        <a href="https://wa.me/919342491694" target="_blank" rel="noopener noreferrer"
-          class="btn-luxury-whatsapp">WhatsApp</a>
-      </div>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="hero-progress">
+      <span id="heroActiveNum">01</span>
+      <span class="hero-progress-separator">/</span>
+      <span>05</span>
     </div>
   </header>
 
@@ -104,18 +124,12 @@
       <div class="container">
         <div class="section-heading text-center mb-5">
           <p class="eyebrow">About Us</p>
-          <h2>Elegant beauty, personalized care</h2>
+          <h2>About Indhu Bridal Studio & Beauty Care</h2>
         </div>
         <div class="row align-items-center g-4">
           <div class="col-lg-6">
             <p>
-              Indhu Bridal Studio & Beauty Care is a trusted beauty destination for brides and women who love to look
-              their absolute best. We blend artistry, detail, and premium care to create looks that are graceful,
-              glamorous, and long-lasting.
-            </p>
-            <p>
-              From bridal makeup to skincare and special occasion styling, our team brings years of experience,
-              creativity, and warm hospitality to every appointment.
+              At Indhu Bridal Studio & Beauty Care, we believe every bride deserves to look elegant, confident, and beautiful on her special day. Based in Alangayam, Tamil Nadu, we specialize in bridal makeup, bridal hairstyling, saree draping, mehendi artistry, and bridal jewellery styling. Our commitment to quality, attention to detail, and personalized service ensures every client enjoys a memorable beauty experience.
             </p>
           </div>
           <div class="col-lg-6">
@@ -163,77 +177,77 @@
             <div class="service-card">
               <div class="service-icon">💄</div>
               <h3>Bridal Makeup</h3>
-              <p>Flawless bridal glamour with long-lasting, camera-ready finish.</p>
+              <p>Professional bridal makeup for a flawless, long-lasting, and camera-ready finish.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="service-card">
               <div class="service-icon">✨</div>
               <h3>Facial</h3>
-              <p>Refresh your skin with calming and brightening facial treatments.</p>
+              <p>Rejuvenating facials for glowing, healthy, and hydrated skin.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="service-card">
-              <div class="service-icon">🌿</div>
-              <h3>Hair Spa</h3>
-              <p>Hydrating hair therapy for silky, healthy-looking hair.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="service-card">
-              <div class="service-icon">✂️</div>
-              <h3>Hair Cutting</h3>
-              <p>Trend-led cuts tailored to your face shape and style.</p>
+              <div class="service-icon">🪡</div>
+              <h3>Eyebrow Threading</h3>
+              <p>Precise eyebrow and facial threading to shape and define your features.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="service-card">
               <div class="service-icon">🪄</div>
               <h3>Waxing</h3>
-              <p>Gentle, smooth hair removal treatment for a polished finish.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="service-card">
-              <div class="service-icon">🪡</div>
-              <h3>Threading</h3>
-              <p>Precise and neat brow and facial threading for a clean look.</p>
+              <p>Gentle and effective waxing treatments for smooth, hair-free skin.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="service-card">
               <div class="service-icon">🪴</div>
               <h3>Pedicure</h3>
-              <p>Relaxing foot care with polish and pampering details.</p>
+              <p>Relaxing foot care, massage, and pedicure for clean and pampered feet.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="service-card">
               <div class="service-icon">💅</div>
               <h3>Manicure</h3>
-              <p>Hand care and elegant nail styling for every occasion.</p>
+              <p>Hand care and nail grooming for a neat, elegant look.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="service-card">
               <div class="service-icon">🌸</div>
               <h3>Mehendi</h3>
-              <p>Beautiful mehendi designs that add charm to your celebration.</p>
+              <p>Beautiful and intricate traditional mehendi designs for all special occasions.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card">
+              <div class="service-icon">🌿</div>
+              <h3>Hair Spa</h3>
+              <p>Nourishing hair spa treatments to restore shine, softness, and health.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card">
+              <div class="service-icon">✂️</div>
+              <h3>Hair Cutting</h3>
+              <p>Stylish hair cuts and styling tailored to your look.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="service-card">
               <div class="service-icon">👗</div>
-              <h3>Saree Draping</h3>
-              <p>Elegant draping for weddings, functions, and festive events.</p>
+              <h3>Saree Box Folding</h3>
+              <p>Professional saree folding and pre-pleating for quick and easy draping.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="service-card">
               <div class="service-icon">💍</div>
-              <h3>Jewellery Rental</h3>
-              <p>Accessorize your look with stunning statement jewellery rentals.</p>
+              <h3>Bridal Jewellery Sets Available</h3>
+              <p>Stunning rental bridal jewellery collections to perfect your wedding look.</p>
             </div>
           </div>
         </div>
@@ -380,9 +394,9 @@
             <div class="contact-card">
               <h3>Visit or Reach Out</h3>
               <p><strong>Phone:</strong> <a href="tel:+919342491694">9342491694</a></p>
-              <p><strong>Address:</strong> Gandhi Road, Near Government Hospital, Ethiril, Alangayam – 635701</p>
+              <p><strong>Address:</strong> Kaarthi Road, Kaval Nilayam Near, Alangayam – 635701, Tamil Nadu.</p>
               <iframe title="Google Map location for Indhu Bridal Studio" class="maps-embed"
-                src="https://www.google.com/maps?q=Indhu%20Bridal%20Studio%20%26%20Beauty%20Care,%20Gandhi%20Road,%20Near%20Government%20Hospital,%20Ethiril,%20Alangayam%20635701&z=16&output=embed"
+                src="https://www.google.com/maps?q=Indhu%20Bridal%20Studio%20%26%20Beauty%20Care,%20Kaarthi%20Road,%20Kaval%20Nilayam%20Near,%20Alangayam%20635701,%20Tamil%20Nadu&z=16&output=embed"
                 loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
               <a href="https://wa.me/919342491694" class="btn btn-success mt-3" target="_blank"
                 rel="noopener noreferrer">WhatsApp Us</a>
@@ -420,7 +434,7 @@
       <div class="row g-4">
         <div class="col-md-4">
           <h4>Indhu Bridal Studio</h4>
-          <p>Elegant beauty studio offering bridal, skincare, haircare, and celebration styling.</p>
+          <p>Creating Timeless Bridal Memories with Beauty, Elegance & Tradition.</p>
         </div>
         <div class="col-md-4">
           <h4>Business Hours</h4>
@@ -456,7 +470,7 @@
     aria-label="WhatsApp">💬</a>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="luxury-hero.js"></script>
+  <script src="luxury-hero.js?v=3"></script>
   <script src="script.js"></script>
 </body>
 
