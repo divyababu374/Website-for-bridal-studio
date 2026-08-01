@@ -262,46 +262,187 @@
       </div>
     </section>
 
-    <section id="gallery" class="section">
+    <section id="gallery" class="section gallery-section reveal fade-up">
+      <div class="gallery-background" aria-hidden="true">
+        <div class="gallery-background-layer is-active"><img src="images/indhuakka.jpeg" alt="Studio bridal background" loading="lazy" /></div>
+        <div class="gallery-background-layer"><img src="images/indhuakka1.jpeg" alt="Studio bridal background" loading="lazy" /></div>
+        <div class="gallery-background-layer"><img src="images/indhuakka6.jpeg" alt="Studio bridal background" loading="lazy" /></div>
+      </div>
+
       <div class="container">
         <div class="section-heading text-center mb-5">
-          <p class="eyebrow">Gallery</p>
-          <h2>Moments of beauty and celebration</h2>
+          <p class="eyebrow">GALLERY</p>
+          <h2>Bridal Transformations</h2>
+          <p class="gallery-description">
+            Every bridal journey tells a story of elegance, confidence, and unforgettable memories.
+          </p>
         </div>
-        <div class="row g-4" id="galleryGrid">
-          <div class="col-sm-6 col-lg-4">
-            <div class="gallery-item">
-              <img src="images/gallery1.jpg" alt="Salon interior with beauty styling station" />
+
+        <div class="gallery-showcase" aria-label="Bridal gallery showcase">
+          <div class="gallery-stage">
+            <div class="gallery-glow"></div>
+            <button class="gallery-arrow gallery-prev" type="button" aria-label="Previous image">‹</button>
+
+            <div class="gallery-viewport" aria-live="polite">
+              <div class="gallery-track">
+                <figure class="gallery-slide is-active" data-index="0">
+                  <img src="images/indhuakka.jpeg" alt="Luxury bridal portrait in studio" loading="lazy" />
+                  <figcaption>
+                    <span class="gallery-counter">01 / 03</span>
+                  </figcaption>
+                </figure>
+                <figure class="gallery-slide" data-index="1">
+                  <img src="images/indhuakka1.jpeg" alt="Elegant bridal makeup close-up" loading="lazy" />
+                  <figcaption>
+                    <span class="gallery-counter">02 / 03</span>
+                  </figcaption>
+                </figure>
+                <figure class="gallery-slide" data-index="2">
+                  <img src="images/indhuakka6.jpeg" alt="Studio portrait of the bridal artist" loading="lazy" />
+                  <figcaption>
+                    <span class="gallery-counter">03 / 03</span>
+                  </figcaption>
+                </figure>
+              </div>
             </div>
+
+            <button class="gallery-arrow gallery-next" type="button" aria-label="Next image">›</button>
           </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="gallery-item">
-              <img src="images/gallery2.jpg" alt="Bride receiving elegant bridal makeup" />
-            </div>
+
+          <div class="gallery-progress-wrap" aria-label="Gallery progress">
+            <div class="gallery-progress-bar"></div>
           </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="gallery-item">
-              <img src="images/gallery3.jpg" alt="Bridal close-up beauty look" />
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="gallery-item">
-              <img src="images/gallery4.jpg" alt="Stylist finishing a glamorous hairstyle" />
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="gallery-item">
-              <img src="images/gallery5.jpg" alt="Luxury beauty treatment session" />
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <div class="gallery-item">
-              <img src="images/gallery6.jpg" alt="Professional parlour styling for a special occasion" />
-            </div>
-          </div>
+
+          <div class="gallery-dots" aria-label="Gallery pagination"></div>
         </div>
       </div>
     </section>
+
+    <script>
+      (function () {
+        const slides = Array.from(document.querySelectorAll('.gallery-slide'));
+        const backgroundLayers = Array.from(document.querySelectorAll('.gallery-background-layer'));
+        const dotsWrap = document.querySelector('.gallery-dots');
+        const prevBtn = document.querySelector('.gallery-prev');
+        const nextBtn = document.querySelector('.gallery-next');
+        const progressBar = document.querySelector('.gallery-progress-bar');
+        const gallery = document.querySelector('.gallery-showcase');
+        const section = document.getElementById('gallery');
+        let currentIndex = 0;
+        let startX = 0;
+        let currentX = 0;
+        let autoRotate;
+
+        function renderDots() {
+          dotsWrap.innerHTML = slides.map(function (_, index) {
+            return '<button class="gallery-dot' + (index === currentIndex ? ' is-active' : '') + '" type="button" aria-label="Go to slide ' + (index + 1) + '" data-index="' + index + '"></button>';
+          }).join('');
+
+          dotsWrap.querySelectorAll('.gallery-dot').forEach(function (dot) {
+            dot.addEventListener('click', function () {
+              goTo(Number(dot.dataset.index));
+            });
+          });
+        }
+
+        function updateBackground() {
+          backgroundLayers.forEach(function (layer, index) {
+            layer.classList.toggle('is-active', index === currentIndex);
+          });
+        }
+
+        function updateProgress() {
+          const progress = ((currentIndex + 1) / slides.length) * 100;
+          progressBar.style.width = progress + '%';
+
+          slides.forEach(function (slide, index) {
+            const active = index === currentIndex;
+            slide.classList.toggle('is-active', active);
+            slide.style.opacity = active ? '1' : '0';
+            slide.style.transform = active ? 'scale(1)' : 'scale(0.98)';
+            slide.style.zIndex = active ? '2' : '1';
+          });
+        }
+
+        function goTo(nextIndex) {
+          currentIndex = (nextIndex + slides.length) % slides.length;
+          renderDots();
+          updateBackground();
+          updateProgress();
+        }
+
+        function startAutoRotate() {
+          clearInterval(autoRotate);
+          autoRotate = setInterval(function () {
+            goTo(currentIndex + 1);
+          }, 5000);
+        }
+
+        prevBtn.addEventListener('click', function () {
+          goTo(currentIndex - 1);
+          startAutoRotate();
+        });
+
+        nextBtn.addEventListener('click', function () {
+          goTo(currentIndex + 1);
+          startAutoRotate();
+        });
+
+        gallery.addEventListener('pointerdown', function (event) {
+          startX = event.clientX;
+          currentX = event.clientX;
+        });
+
+        gallery.addEventListener('pointermove', function (event) {
+          if (startX === 0) return;
+          currentX = event.clientX;
+        });
+
+        gallery.addEventListener('pointerup', function () {
+          if (startX === 0) return;
+          const delta = currentX - startX;
+          if (Math.abs(delta) > 45) {
+            goTo(delta < 0 ? currentIndex + 1 : currentIndex - 1);
+          }
+          startX = 0;
+          currentX = 0;
+          startAutoRotate();
+        });
+
+        gallery.addEventListener('touchstart', function (event) {
+          startX = event.touches[0].clientX;
+        }, { passive: true });
+
+        gallery.addEventListener('touchend', function (event) {
+          const delta = event.changedTouches[0].clientX - startX;
+          if (Math.abs(delta) > 45) {
+            goTo(delta < 0 ? currentIndex + 1 : currentIndex - 1);
+          }
+          startX = 0;
+          startAutoRotate();
+        }, { passive: true });
+
+        if ('IntersectionObserver' in window && section) {
+          const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                section.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.18 });
+          observer.observe(section);
+        } else if (section) {
+          section.classList.add('is-visible');
+        }
+
+        renderDots();
+        updateBackground();
+        updateProgress();
+        startAutoRotate();
+      })();
+    </script>
+
 
     <section id="testimonials" class="section">
       <div class="container">
