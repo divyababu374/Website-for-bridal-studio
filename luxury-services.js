@@ -25,34 +25,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const getLayoutConfig = () => {
     const width = window.innerWidth;
     const firstCard = document.querySelector('.coverflow-slide');
-    const cardWidth = firstCard ? firstCard.offsetWidth : 260;
+    const cardWidth = firstCard ? firstCard.offsetWidth : 440;
 
     if (width < 576) {
-      // Mobile: One main card + ~20% of side card peeking
+      // Mobile: One main card + ~15-20% of side card peeking
       return {
-        spacing: cardWidth * 0.70,
-        rotateY: 15,
-        translateZ: -80,
-        sideOpacity: 0.5,
+        spacing: cardWidth * 0.82,
+        rotateY: 10,
+        translateZ: -100,
+        sideOpacity: 0.6,
         sideScale: 0.88
       };
     } else if (width < 992) {
       // Tablet: Show ~1.5 cards
       return {
-        spacing: cardWidth * 0.74,
-        rotateY: 20,
-        translateZ: -100,
+        spacing: cardWidth * 0.78,
+        rotateY: 15,
+        translateZ: -120,
         sideOpacity: 0.65,
         sideScale: 0.88
       };
     } else {
-      // Desktop: Center card fully visible + prev/next partially visible
+      // Desktop: Center card fully visible + prev/next partially visible (~25-30% visible)
       return {
-        spacing: cardWidth * 0.76,
-        rotateY: 22,
-        translateZ: -120,
+        spacing: cardWidth * 0.72,
+        rotateY: 20,
+        translateZ: -150,
         sideOpacity: 0.7,
-        sideScale: 0.9
+        sideScale: 0.88
       };
     }
   };
@@ -225,6 +225,15 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('touchmove', handleDragMove, { passive: true });
   window.addEventListener('touchend', handleDragEnd);
 
+  // Pause on hover, resume after 3 seconds
+  container.addEventListener('mouseenter', () => {
+    stopAutoScroll();
+    if (inactivityTimer) clearTimeout(inactivityTimer);
+  });
+  container.addEventListener('mouseleave', () => {
+    resetInactivityTimer();
+  });
+
   // Resize handler to adjust peeking space responsively
   window.addEventListener('resize', () => {
     updateCoverflow();
@@ -275,6 +284,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // Luxury ripple click animation on individual cards
   const cards = document.querySelectorAll('.luxury-service-card');
   cards.forEach(card => {
+    // Add WhatsApp Enquiry trigger for the Enquire Now button
+    const whatsappBtn = card.querySelector('.btn-card-whatsapp');
+    whatsappBtn?.addEventListener('click', (e) => {
+      e.stopPropagation(); // prevent modal opening/slide changing
+      e.preventDefault();
+      const serviceName = card.querySelector('h3').textContent.trim();
+      const message = `Hello Indhu Bridal Studio & Beauty Care,\n\nI am interested in your ${serviceName} service.\n\nCould you please share the package details, pricing and available dates?\n\nThank you.`;
+      const url = `https://wa.me/919342491694?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    });
+
     card.addEventListener('click', (e) => {
       // 1. Ripple Animation creation
       const rect = card.getBoundingClientRect();

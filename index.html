@@ -203,6 +203,7 @@
                 <div class="card-content-wrapper">
                   <h3>Bridal Makeup</h3>
                   <p>Timeless bridal beauty for your unforgettable day.</p>
+                  <button class="btn-card-whatsapp" aria-label="Enquire on WhatsApp">💬 Enquire Now</button>
                 </div>
               </div>
             </div>
@@ -215,6 +216,7 @@
                 <div class="card-content-wrapper">
                   <h3>Hair Styling & Saree Draping</h3>
                   <p>Elegant hairstyles and graceful traditional draping.</p>
+                  <button class="btn-card-whatsapp" aria-label="Enquire on WhatsApp">💬 Enquire Now</button>
                 </div>
               </div>
             </div>
@@ -227,6 +229,7 @@
                 <div class="card-content-wrapper">
                   <h3>Mehendi Artistry</h3>
                   <p>Intricate mehendi designs crafted with perfection.</p>
+                  <button class="btn-card-whatsapp" aria-label="Enquire on WhatsApp">💬 Enquire Now</button>
                 </div>
               </div>
             </div>
@@ -239,6 +242,7 @@
                 <div class="card-content-wrapper">
                   <h3>Bridal Jewellery</h3>
                   <p>Complete your bridal look with elegant jewellery styling.</p>
+                  <button class="btn-card-whatsapp" aria-label="Enquire on WhatsApp">💬 Enquire Now</button>
                 </div>
               </div>
             </div>
@@ -620,18 +624,30 @@
     </div>
   </footer>
 
-  <a href="#home" id="scrollTop" class="scroll-top" aria-label="Scroll to top">↑</a>
-  <button id="floatingBookBtn" class="floating-book-now-pill" aria-label="Book appointment now">
-    <span class="btn-text">Book Now</span>
-  </button>
-  <a href="https://wa.me/919342491694" class="floating-whatsapp" target="_blank" rel="noopener noreferrer"
-    aria-label="WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF"
-      style="display: block; margin: auto;">
-      <path
-        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.588 1.45 5.416 1.451 5.54.004 10.05-4.505 10.054-10.05.002-2.687-1.043-5.212-2.94-7.11-1.897-1.898-4.419-2.943-7.106-2.944-5.548 0-10.059 4.507-10.063 10.05-.001 1.892.493 3.738 1.43 5.361l-.995 3.635 3.734-.98l-.04.027zm10.743-7.404c-.29-.145-1.72-.848-1.986-.944-.267-.096-.462-.145-.657.145-.195.29-.755.944-.925 1.137-.17.194-.34.218-.63.073-.29-.145-1.226-.452-2.335-1.442-.863-.77-1.446-1.72-1.616-2.011-.17-.29-.018-.447.127-.592.13-.13.29-.34.435-.509.145-.17.194-.29.291-.485.097-.194.048-.364-.025-.509-.072-.145-.656-1.579-.899-2.161-.236-.57-.478-.493-.656-.502-.17-.008-.364-.01-.558-.01-.194 0-.509.073-.776.364-.267.29-1.02 1.02-1.02 2.473 0 1.454 1.056 2.86 1.202 3.055.145.194 2.077 3.17 5.033 4.45.704.304 1.252.486 1.68.622.707.225 1.35.193 1.86.117.567-.085 1.72-.703 1.962-1.382.242-.679.242-1.261.17-1.382-.073-.12-.267-.194-.557-.339z" />
-    </svg>
-  </a>
+  <div class="floating-actions-stack" id="floatingActionsStack">
+    <a href="#home" id="scrollTop" class="scroll-top" aria-label="Scroll to top">↑</a>
+    <button id="floatingBookBtn" class="floating-book-now-pill" aria-label="Book appointment now">
+      <span class="btn-icon">💍</span>
+      <span class="btn-text">Book Now</span>
+    </button>
+    <a href="https://wa.me/919342491694" class="floating-whatsapp" target="_blank" rel="noopener noreferrer"
+      aria-label="WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF"
+        style="display: block; margin: auto;">
+        <path
+          d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.588 1.45 5.416 1.451 5.54.004 10.05-4.505 10.054-10.05.002-2.687-1.043-5.212-2.94-7.11-1.897-1.898-4.419-2.943-7.106-2.944-5.548 0-10.059 4.507-10.063 10.05-.001 1.892.493 3.738 1.43 5.361l-.995 3.635 3.734-.98l-.04.027zm10.743-7.404c-.29-.145-1.72-.848-1.986-.944-.267-.096-.462-.145-.657.145-.195.29-.755.944-.925 1.137-.17.194-.34.218-.63.073-.29-.145-1.226-.452-2.335-1.442-.863-.77-1.446-1.72-1.616-2.011-.17-.29-.018-.447.127-.592.13-.13.29-.34.435-.509.145-.17.194-.29.291-.485.097-.194.048-.364-.025-.509-.072-.145-.656-1.579-.899-2.161-.236-.57-.478-.493-.656-.502-.17-.008-.364-.01-.558-.01-.194 0-.509.073-.776.364-.267.29-1.02 1.02-1.02 2.473 0 1.454 1.056 2.86 1.202 3.055.145.194 2.077 3.17 5.033 4.45.704.304 1.252.486 1.68.622.707.225 1.35.193 1.86.117.567-.085 1.72-.703 1.962-1.382.242-.679.242-1.261.17-1.382-.073-.12-.267-.194-.557-.339z" />
+      </svg>
+    </a>
+  </div>
+
+  <div id="whatsappToast" class="whatsapp-success-toast" role="alert">
+    <div class="toast-icon">💍</div>
+    <div class="toast-content">
+      <h4 class="toast-title">Redirected to WhatsApp</h4>
+      <p class="toast-msg">Please send the pre-filled message in WhatsApp to confirm your appointment!</p>
+    </div>
+    <button class="toast-close-btn" id="toastCloseBtn" aria-label="Close">&times;</button>
+  </div>
 
   <!-- Premium Details Modal Overlay -->
   <div class="luxury-service-modal" id="serviceModal" aria-hidden="true">

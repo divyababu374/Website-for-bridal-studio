@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const scrollTopBtn = document.getElementById('scrollTop');
+  const floatingActionsStack = document.getElementById('floatingActionsStack');
+  const footer = document.querySelector('footer');
+
+  // Show Scroll-to-Top only after scrolling approximately 500px
   const showButton = () => {
     if (window.scrollY > 500) {
       scrollTopBtn?.classList.add('show');
@@ -13,8 +17,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  window.addEventListener('scroll', showButton);
+  // Prevent floating actions stack from overlapping the footer
+  const adjustStackPosition = () => {
+    if (!footer || !floatingActionsStack) return;
+    const footerRect = footer.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    if (footerRect.top < viewportHeight) {
+      const overlap = viewportHeight - footerRect.top;
+      floatingActionsStack.style.bottom = `${overlap + 24}px`;
+    } else {
+      floatingActionsStack.style.bottom = '24px';
+    }
+  };
+
+  window.addEventListener('scroll', () => {
+    showButton();
+    adjustStackPosition();
+  });
+  window.addEventListener('resize', adjustStackPosition);
+  
   showButton();
+  adjustStackPosition();
 
   // Testimonials Cycle
   const testimonialCards = Array.from(document.querySelectorAll('.testimonial-card'));
@@ -39,6 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const today = new Date().toISOString().split('T')[0];
     dateInput.setAttribute('min', today);
   }
+
+  // Toast close handler
+  const toastCloseBtn = document.getElementById('toastCloseBtn');
+  toastCloseBtn?.addEventListener('click', () => {
+    document.getElementById('whatsappToast')?.classList.remove('show');
+  });
 
   // Appointment Form submission
   const appointmentForm = document.getElementById('appointmentForm');
@@ -85,6 +114,21 @@ Thank you!`;
       // Reset form and hide loading state
       appointmentForm.reset();
       loadingState?.classList.remove('is-loading');
+
+      // Success toast reminding user to send the prepared message
+      const handleFocus = () => {
+        const toast = document.getElementById('whatsappToast');
+        if (toast) {
+          toast.classList.add('show');
+          setTimeout(() => {
+            toast.classList.remove('show');
+          }, 8000); // Hide after 8 seconds
+        }
+        window.removeEventListener('focus', handleFocus);
+      };
+      setTimeout(() => {
+        window.addEventListener('focus', handleFocus);
+      }, 1000);
     }, 700); // 700ms loading state
   });
 
@@ -94,8 +138,15 @@ Thank you!`;
 
   floatingBookBtn?.addEventListener('click', () => {
     if (bookingFormCard) {
-      // Smoothly scroll form into center of viewport
-      bookingFormCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Scroll to the booking form leaving approximately 80px of space above it rather than centering it exactly
+      const offset = 80;
+      const elementPosition = bookingFormCard.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
 
       // Highlight form with soft green glow pulse after scroll completes
       setTimeout(() => {
