@@ -36,14 +36,14 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transform: scale(1);
-  transition: opacity 1.4s ease, transform 5s ease-out;
+  transform: scale(1.02);
+  transition: opacity 0.65s ease, transform 4s ease-out;
   will-change: opacity, transform;
 }
 
 .hero-slide.active {
   opacity: 1;
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 /* Plum Overlay */
@@ -51,9 +51,9 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-      rgba(0, 0, 0, 0.10) 0%,
-      rgba(0, 0, 0, 0.18) 45%,
-      rgba(0, 0, 0, 0.10) 100%);
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.08) 45%,
+      rgba(0, 0, 0, 0.04) 100%);
   z-index: 1;
   pointer-events: none;
 }

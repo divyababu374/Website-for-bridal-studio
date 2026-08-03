@@ -75,10 +75,10 @@
     <!-- Slideshow Images -->
     <div class="hero-slides">
       <img class="hero-slide active" src="images/indhuakka1.jpeg" alt="Best Bridal Transformation" />
-      <img class="hero-slide" src="images/indhuakka4.jpeg" alt="Makeup in Progress" />
-      <img class="hero-slide" src="images/indhuakka5.jpeg" alt="Side Profile Bridal Look" />
-      <img class="hero-slide" src="images/indhuakka.jpeg" alt="Meet the Artist" />
-      <img class="hero-slide" src="images/indhuakka6.jpeg" alt="Another Premium Bridal Transformation" />
+      <img class="hero-slide" src="images/makeup-in-progress.png" alt="Makeup in Progress" />
+      <img class="hero-slide" src="images/hero-home.jpeg" alt="Side Profile Bridal Look" />
+      <img class="hero-slide" src="images/indhuakka4.jpeg" alt="Meet the Artist" />
+      <img class="hero-slide" src="images/bridal-mirrpr.png" alt="Another Premium Bridal Transformation" />
     </div>
 
     <!-- Plum Gradient Overlay -->
@@ -238,19 +238,22 @@
               <span class="view-btn">🔍 View Portrait</span>
             </div>
           </div>
-          <div class="gallery-item" data-index="1" data-src="images/indhuakka1.jpeg" data-caption="Elegant Bridal Closeup">
+          <div class="gallery-item" data-index="1" data-src="images/indhuakka1.jpeg"
+            data-caption="Elegant Bridal Closeup">
             <img src="images/indhuakka1.jpeg" alt="Elegant Bridal Closeup" loading="lazy" />
             <div class="gallery-item-overlay">
               <span class="view-btn">🔍 View Portrait</span>
             </div>
           </div>
-          <div class="gallery-item" data-index="2" data-src="images/indhuakka4.jpeg" data-caption="Artistic Bridal Styling">
+          <div class="gallery-item" data-index="2" data-src="images/indhuakka4.jpeg"
+            data-caption="Artistic Bridal Styling">
             <img src="images/indhuakka4.jpeg" alt="Artistic Bridal Styling" loading="lazy" />
             <div class="gallery-item-overlay">
               <span class="view-btn">🔍 View Portrait</span>
             </div>
           </div>
-          <div class="gallery-item" data-index="3" data-src="images/indhuakka5.jpeg" data-caption="Traditional Hair Styling & Draping">
+          <div class="gallery-item" data-index="3" data-src="images/indhuakka5.jpeg"
+            data-caption="Traditional Hair Styling & Draping">
             <img src="images/indhuakka5.jpeg" alt="Traditional Hair Styling & Draping" loading="lazy" />
             <div class="gallery-item-overlay">
               <span class="view-btn">🔍 View Portrait</span>
@@ -262,7 +265,8 @@
               <span class="view-btn">🔍 View Portrait</span>
             </div>
           </div>
-          <div class="gallery-item" data-index="5" data-src="images/gallery1.jpg" data-caption="Premium Bridal Transformation">
+          <div class="gallery-item" data-index="5" data-src="images/gallery1.jpg"
+            data-caption="Premium Bridal Transformation">
             <img src="images/gallery1.jpg" alt="Premium Bridal Transformation" loading="lazy" />
             <div class="gallery-item-overlay">
               <span class="view-btn">🔍 View Portrait</span>
@@ -274,25 +278,29 @@
               <span class="view-btn">🔍 View Portrait</span>
             </div>
           </div>
-          <div class="gallery-item" data-index="7" data-src="images/gallery3.jpg" data-caption="Intricate Bridal Mehendi">
+          <div class="gallery-item" data-index="7" data-src="images/gallery3.jpg"
+            data-caption="Intricate Bridal Mehendi">
             <img src="images/gallery3.jpg" alt="Intricate Bridal Mehendi" loading="lazy" />
             <div class="gallery-item-overlay">
               <span class="view-btn">🔍 View Portrait</span>
             </div>
           </div>
-          <div class="gallery-item" data-index="8" data-src="images/gallery4.jpg" data-caption="Exquisite Saree Draping">
+          <div class="gallery-item" data-index="8" data-src="images/gallery4.jpg"
+            data-caption="Exquisite Saree Draping">
             <img src="images/gallery4.jpg" alt="Exquisite Saree Draping" loading="lazy" />
             <div class="gallery-item-overlay">
               <span class="view-btn">🔍 View Portrait</span>
             </div>
           </div>
-          <div class="gallery-item" data-index="9" data-src="images/gallery5.jpg" data-caption="Elegant Reception Makeup">
+          <div class="gallery-item" data-index="9" data-src="images/gallery5.jpg"
+            data-caption="Elegant Reception Makeup">
             <img src="images/gallery5.jpg" alt="Elegant Reception Makeup" loading="lazy" />
             <div class="gallery-item-overlay">
               <span class="view-btn">🔍 View Portrait</span>
             </div>
           </div>
-          <div class="gallery-item" data-index="10" data-src="images/gallery6.jpg" data-caption="Glowing Bridal Portrait">
+          <div class="gallery-item" data-index="10" data-src="images/gallery6.jpg"
+            data-caption="Glowing Bridal Portrait">
             <img src="images/gallery6.jpg" alt="Glowing Bridal Portrait" loading="lazy" />
             <div class="gallery-item-overlay">
               <span class="view-btn">🔍 View Portrait</span>
@@ -352,7 +360,7 @@
           openModal(currentIndex);
         }
 
-        galleryGrid.addEventListener('click', function(e) {
+        galleryGrid.addEventListener('click', function (e) {
           const item = e.target.closest('.gallery-item');
           if (item) {
             const index = parseInt(item.getAttribute('data-index'), 10);
@@ -399,7 +407,13 @@
           <h2 class="about-heading reveal fade-up">Crafting Timeless Beauty, Creating Unforgettable Moments</h2>
           <div class="about-divider reveal fade-up"></div>
           <p class="about-paragraph reveal fade-up">
-            At Indhu Bridal Studio, we believe every celebration deserves a touch of elegance. We specialize in creating timeless bridal transformations through personalized <span class="about-service-highlight">makeup artistry</span>, <span class="about-service-highlight">professional hairstyling</span>, <span class="about-service-highlight">intricate mehendi</span>, and <span class="about-service-highlight">creative beauty services</span>. Every look is thoughtfully designed to enhance your natural beauty while reflecting your unique style and personality. With a commitment to quality, precision, and a luxurious client experience, we strive to make every special moment unforgettable.
+            At Indhu Bridal Studio, we believe every celebration deserves a touch of elegance. We specialize in creating
+            timeless bridal transformations through personalized <span class="about-service-highlight">makeup
+              artistry</span>, <span class="about-service-highlight">professional hairstyling</span>, <span
+              class="about-service-highlight">intricate mehendi</span>, and <span
+              class="about-service-highlight">creative beauty services</span>. Every look is thoughtfully designed to
+            enhance your natural beauty while reflecting your unique style and personality. With a commitment to
+            quality, precision, and a luxurious client experience, we strive to make every special moment unforgettable.
           </p>
         </div>
       </div>
