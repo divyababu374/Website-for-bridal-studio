@@ -123,52 +123,6 @@
   </header>
 
   <main>
-    <section id="about" class="section about-section">
-      <div class="container">
-        <div class="about-hero">
-          <p class="eyebrow reveal fade-up">ABOUT THE STUDIO</p>
-          <h2 class="about-heading reveal fade-up">Crafting Timeless Beauty, Creating Unforgettable Moments</h2>
-          <div class="about-divider reveal fade-up"></div>
-          <p class="about-paragraph reveal fade-up">
-            At Indhu Bridal Studio, we believe every celebration deserves a touch of elegance. We specialize in creating timeless bridal transformations through personalized <span class="about-service-highlight">makeup artistry</span>, <span class="about-service-highlight">professional hairstyling</span>, <span class="about-service-highlight">intricate mehendi</span>, and <span class="about-service-highlight">creative beauty services</span>. Every look is thoughtfully designed to enhance your natural beauty while reflecting your unique style and personality. With a commitment to quality, precision, and a luxurious client experience, we strive to make every special moment unforgettable.
-          </p>
-        </div>
-      </div>
-
-      <script>
-        (function () {
-          const revealItems = document.querySelectorAll('#about .reveal');
-
-          function showRevealItems() {
-            revealItems.forEach(function (item, index) {
-              setTimeout(function () {
-                item.classList.add('is-visible');
-              }, index * 120);
-            });
-          }
-
-          if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver(function (entries) {
-              entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add('is-visible');
-                  observer.unobserve(entry.target);
-                }
-              });
-            }, { threshold: 0.15 });
-
-            revealItems.forEach(function (item) {
-              observer.observe(item);
-            });
-          } else {
-            showRevealItems();
-          }
-
-          window.addEventListener('load', showRevealItems);
-        })();
-      </script>
-    </section>
-
     <section id="services" class="section-services-redesign">
       <div class="container">
         <!-- Section Heading -->
@@ -267,12 +221,6 @@
     </section>
 
     <section id="gallery" class="section gallery-section reveal fade-up">
-      <div class="gallery-background" aria-hidden="true">
-        <div class="gallery-background-layer is-active"><img src="images/indhuakka.jpeg" alt="Studio bridal background" loading="lazy" /></div>
-        <div class="gallery-background-layer"><img src="images/indhuakka1.jpeg" alt="Studio bridal background" loading="lazy" /></div>
-        <div class="gallery-background-layer"><img src="images/indhuakka6.jpeg" alt="Studio bridal background" loading="lazy" /></div>
-      </div>
-
       <div class="container">
         <div class="section-heading text-center mb-5">
           <p class="eyebrow">GALLERY</p>
@@ -282,149 +230,151 @@
           </p>
         </div>
 
-        <div class="gallery-showcase" aria-label="Bridal gallery showcase">
-          <div class="gallery-stage">
-            <div class="gallery-glow"></div>
-            <button class="gallery-arrow gallery-prev" type="button" aria-label="Previous image">‹</button>
-
-            <div class="gallery-viewport" aria-live="polite">
-              <div class="gallery-track">
-                <figure class="gallery-slide is-active" data-index="0">
-                  <img src="images/indhuakka.jpeg" alt="Luxury bridal portrait in studio" loading="lazy" />
-                  <figcaption>
-                    <span class="gallery-counter">01 / 03</span>
-                  </figcaption>
-                </figure>
-                <figure class="gallery-slide" data-index="1">
-                  <img src="images/indhuakka1.jpeg" alt="Elegant bridal makeup close-up" loading="lazy" />
-                  <figcaption>
-                    <span class="gallery-counter">02 / 03</span>
-                  </figcaption>
-                </figure>
-                <figure class="gallery-slide" data-index="2">
-                  <img src="images/indhuakka6.jpeg" alt="Studio portrait of the bridal artist" loading="lazy" />
-                  <figcaption>
-                    <span class="gallery-counter">03 / 03</span>
-                  </figcaption>
-                </figure>
-              </div>
+        <div class="gallery-grid" id="galleryGrid">
+          <div class="gallery-item" data-index="0" data-src="images/indhuakka.jpeg" data-caption="Classic Bridal Glow">
+            <img src="images/indhuakka.jpeg" alt="Classic Bridal Glow" loading="lazy" />
+            <div class="gallery-item-overlay">
+              <span class="view-btn">🔍 View Portrait</span>
             </div>
-
-            <button class="gallery-arrow gallery-next" type="button" aria-label="Next image">›</button>
           </div>
-
-          <div class="gallery-progress-wrap" aria-label="Gallery progress">
-            <div class="gallery-progress-bar"></div>
+          <div class="gallery-item" data-index="1" data-src="images/indhuakka1.jpeg" data-caption="Elegant Bridal Closeup">
+            <img src="images/indhuakka1.jpeg" alt="Elegant Bridal Closeup" loading="lazy" />
+            <div class="gallery-item-overlay">
+              <span class="view-btn">🔍 View Portrait</span>
+            </div>
           </div>
-
-          <div class="gallery-dots" aria-label="Gallery pagination"></div>
+          <div class="gallery-item" data-index="2" data-src="images/indhuakka4.jpeg" data-caption="Artistic Bridal Styling">
+            <img src="images/indhuakka4.jpeg" alt="Artistic Bridal Styling" loading="lazy" />
+            <div class="gallery-item-overlay">
+              <span class="view-btn">🔍 View Portrait</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-index="3" data-src="images/indhuakka5.jpeg" data-caption="Traditional Hair Styling & Draping">
+            <img src="images/indhuakka5.jpeg" alt="Traditional Hair Styling & Draping" loading="lazy" />
+            <div class="gallery-item-overlay">
+              <span class="view-btn">🔍 View Portrait</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-index="4" data-src="images/indhuakka6.jpeg" data-caption="Royal Bridal Look">
+            <img src="images/indhuakka6.jpeg" alt="Royal Bridal Look" loading="lazy" />
+            <div class="gallery-item-overlay">
+              <span class="view-btn">🔍 View Portrait</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-index="5" data-src="images/gallery1.jpg" data-caption="Premium Bridal Transformation">
+            <img src="images/gallery1.jpg" alt="Premium Bridal Transformation" loading="lazy" />
+            <div class="gallery-item-overlay">
+              <span class="view-btn">🔍 View Portrait</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-index="6" data-src="images/gallery2.jpg" data-caption="Gorgeous Hair Design">
+            <img src="images/gallery2.jpg" alt="Gorgeous Hair Design" loading="lazy" />
+            <div class="gallery-item-overlay">
+              <span class="view-btn">🔍 View Portrait</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-index="7" data-src="images/gallery3.jpg" data-caption="Intricate Bridal Mehendi">
+            <img src="images/gallery3.jpg" alt="Intricate Bridal Mehendi" loading="lazy" />
+            <div class="gallery-item-overlay">
+              <span class="view-btn">🔍 View Portrait</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-index="8" data-src="images/gallery4.jpg" data-caption="Exquisite Saree Draping">
+            <img src="images/gallery4.jpg" alt="Exquisite Saree Draping" loading="lazy" />
+            <div class="gallery-item-overlay">
+              <span class="view-btn">🔍 View Portrait</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-index="9" data-src="images/gallery5.jpg" data-caption="Elegant Reception Makeup">
+            <img src="images/gallery5.jpg" alt="Elegant Reception Makeup" loading="lazy" />
+            <div class="gallery-item-overlay">
+              <span class="view-btn">🔍 View Portrait</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-index="10" data-src="images/gallery6.jpg" data-caption="Glowing Bridal Portrait">
+            <img src="images/gallery6.jpg" alt="Glowing Bridal Portrait" loading="lazy" />
+            <div class="gallery-item-overlay">
+              <span class="view-btn">🔍 View Portrait</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- Custom Gallery Lightbox Modal -->
+    <div class="gallery-modal" id="galleryModal" role="dialog" aria-modal="true" aria-label="Image gallery lightbox">
+      <button class="gallery-modal-close" id="modalClose" aria-label="Close lightbox">&times;</button>
+      <div class="gallery-modal-inner">
+        <button class="gallery-modal-nav gallery-modal-prev" id="modalPrev" aria-label="Previous image">‹</button>
+        <div class="gallery-modal-stage">
+          <img src="" id="modalImg" alt="Enlarged view" />
+          <div class="gallery-modal-caption" id="modalCaption"></div>
+        </div>
+        <button class="gallery-modal-nav gallery-modal-next" id="modalNext" aria-label="Next image">›</button>
+      </div>
+    </div>
+
     <script>
       (function () {
-        const slides = Array.from(document.querySelectorAll('.gallery-slide'));
-        const backgroundLayers = Array.from(document.querySelectorAll('.gallery-background-layer'));
-        const dotsWrap = document.querySelector('.gallery-dots');
-        const prevBtn = document.querySelector('.gallery-prev');
-        const nextBtn = document.querySelector('.gallery-next');
-        const progressBar = document.querySelector('.gallery-progress-bar');
-        const gallery = document.querySelector('.gallery-showcase');
+        const galleryGrid = document.getElementById('galleryGrid');
+        const items = Array.from(galleryGrid.querySelectorAll('.gallery-item'));
+        const modal = document.getElementById('galleryModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalCaption = document.getElementById('modalCaption');
+        const closeBtn = document.getElementById('modalClose');
+        const prevBtn = document.getElementById('modalPrev');
+        const nextBtn = document.getElementById('modalNext');
         const section = document.getElementById('gallery');
         let currentIndex = 0;
-        let startX = 0;
-        let currentX = 0;
-        let autoRotate;
 
-        function renderDots() {
-          dotsWrap.innerHTML = slides.map(function (_, index) {
-            return '<button class="gallery-dot' + (index === currentIndex ? ' is-active' : '') + '" type="button" aria-label="Go to slide ' + (index + 1) + '" data-index="' + index + '"></button>';
-          }).join('');
-
-          dotsWrap.querySelectorAll('.gallery-dot').forEach(function (dot) {
-            dot.addEventListener('click', function () {
-              goTo(Number(dot.dataset.index));
-            });
-          });
+        function openModal(index) {
+          currentIndex = index;
+          const item = items[currentIndex];
+          modalImg.src = item.getAttribute('data-src');
+          modalCaption.textContent = item.getAttribute('data-caption');
+          modal.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
         }
 
-        function updateBackground() {
-          backgroundLayers.forEach(function (layer, index) {
-            layer.classList.toggle('is-active', index === currentIndex);
-          });
+        function closeModal() {
+          modal.classList.remove('is-open');
+          document.body.style.overflow = '';
         }
 
-        function updateProgress() {
-          const progress = ((currentIndex + 1) / slides.length) * 100;
-          progressBar.style.width = progress + '%';
-
-          slides.forEach(function (slide, index) {
-            const active = index === currentIndex;
-            slide.classList.toggle('is-active', active);
-            slide.style.opacity = active ? '1' : '0';
-            slide.style.transform = active ? 'scale(1)' : 'scale(0.98)';
-            slide.style.zIndex = active ? '2' : '1';
-          });
+        function showNext() {
+          currentIndex = (currentIndex + 1) % items.length;
+          openModal(currentIndex);
         }
 
-        function goTo(nextIndex) {
-          currentIndex = (nextIndex + slides.length) % slides.length;
-          renderDots();
-          updateBackground();
-          updateProgress();
+        function showPrev() {
+          currentIndex = (currentIndex - 1 + items.length) % items.length;
+          openModal(currentIndex);
         }
 
-        function startAutoRotate() {
-          clearInterval(autoRotate);
-          autoRotate = setInterval(function () {
-            goTo(currentIndex + 1);
-          }, 5000);
-        }
-
-        prevBtn.addEventListener('click', function () {
-          goTo(currentIndex - 1);
-          startAutoRotate();
-        });
-
-        nextBtn.addEventListener('click', function () {
-          goTo(currentIndex + 1);
-          startAutoRotate();
-        });
-
-        gallery.addEventListener('pointerdown', function (event) {
-          startX = event.clientX;
-          currentX = event.clientX;
-        });
-
-        gallery.addEventListener('pointermove', function (event) {
-          if (startX === 0) return;
-          currentX = event.clientX;
-        });
-
-        gallery.addEventListener('pointerup', function () {
-          if (startX === 0) return;
-          const delta = currentX - startX;
-          if (Math.abs(delta) > 45) {
-            goTo(delta < 0 ? currentIndex + 1 : currentIndex - 1);
+        galleryGrid.addEventListener('click', function(e) {
+          const item = e.target.closest('.gallery-item');
+          if (item) {
+            const index = parseInt(item.getAttribute('data-index'), 10);
+            openModal(index);
           }
-          startX = 0;
-          currentX = 0;
-          startAutoRotate();
         });
 
-        gallery.addEventListener('touchstart', function (event) {
-          startX = event.touches[0].clientX;
-        }, { passive: true });
+        closeBtn.addEventListener('click', closeModal);
+        nextBtn.addEventListener('click', showNext);
+        prevBtn.addEventListener('click', showPrev);
 
-        gallery.addEventListener('touchend', function (event) {
-          const delta = event.changedTouches[0].clientX - startX;
-          if (Math.abs(delta) > 45) {
-            goTo(delta < 0 ? currentIndex + 1 : currentIndex - 1);
+        document.addEventListener('keydown', function (e) {
+          if (!modal.classList.contains('is-open')) return;
+          if (e.key === 'Escape') closeModal();
+          if (e.key === 'ArrowRight') showNext();
+          if (e.key === 'ArrowLeft') showPrev();
+        });
+
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal || e.target.classList.contains('gallery-modal-inner')) {
+            closeModal();
           }
-          startX = 0;
-          startAutoRotate();
-        }, { passive: true });
+        });
 
         if ('IntersectionObserver' in window && section) {
           const observer = new IntersectionObserver(function (entries) {
@@ -434,19 +384,58 @@
                 observer.unobserve(entry.target);
               }
             });
-          }, { threshold: 0.18 });
+          }, { threshold: 0.1 });
           observer.observe(section);
         } else if (section) {
           section.classList.add('is-visible');
         }
-
-        renderDots();
-        updateBackground();
-        updateProgress();
-        startAutoRotate();
       })();
     </script>
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="about-hero">
+          <p class="eyebrow reveal fade-up">ABOUT THE STUDIO</p>
+          <h2 class="about-heading reveal fade-up">Crafting Timeless Beauty, Creating Unforgettable Moments</h2>
+          <div class="about-divider reveal fade-up"></div>
+          <p class="about-paragraph reveal fade-up">
+            At Indhu Bridal Studio, we believe every celebration deserves a touch of elegance. We specialize in creating timeless bridal transformations through personalized <span class="about-service-highlight">makeup artistry</span>, <span class="about-service-highlight">professional hairstyling</span>, <span class="about-service-highlight">intricate mehendi</span>, and <span class="about-service-highlight">creative beauty services</span>. Every look is thoughtfully designed to enhance your natural beauty while reflecting your unique style and personality. With a commitment to quality, precision, and a luxurious client experience, we strive to make every special moment unforgettable.
+          </p>
+        </div>
+      </div>
 
+      <script>
+        (function () {
+          const revealItems = document.querySelectorAll('#about .reveal');
+
+          function showRevealItems() {
+            revealItems.forEach(function (item, index) {
+              setTimeout(function () {
+                item.classList.add('is-visible');
+              }, index * 120);
+            });
+          }
+
+          if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver(function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  observer.unobserve(entry.target);
+                }
+              });
+            }, { threshold: 0.15 });
+
+            revealItems.forEach(function (item) {
+              observer.observe(item);
+            });
+          } else {
+            showRevealItems();
+          }
+
+          window.addEventListener('load', showRevealItems);
+        })();
+      </script>
+    </section>
 
     <section id="testimonials" class="section">
       <div class="container">
