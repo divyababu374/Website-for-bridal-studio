@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         heroSlides[activeSlideIndex].classList.remove('active');
         activeSlideIndex = (activeSlideIndex + 1) % heroSlides.length;
         heroSlides[activeSlideIndex].classList.add('active');
-      }, 180);
+      }, 300);
 
       // 0.8s: Fade in new text with updated content
       setTimeout(() => {
@@ -89,9 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         heroContent?.classList.remove('text-fade-out');
-      }, 450);
+      }, 800);
 
-    }, 400);
+    }, 5000);
   };
 
   const stopSlideshow = () => {
