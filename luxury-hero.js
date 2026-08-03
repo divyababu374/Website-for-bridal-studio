@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
           eyebrowEl.textContent = nextContent.eyebrow;
           titleEl.textContent = nextContent.title;
           descEl.textContent = nextContent.description;
-          
+
           const topBar = document.getElementById('mobileTopBar');
           if (topBar) {
             topBar.classList.toggle('bright-bg', nextContent.isBright);
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         heroContent?.classList.remove('text-fade-out');
-      },450);
+      }, 450);
 
     }, 400);
   };
@@ -104,10 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroSlides.length > 0) {
     startSlideshow();
 
-    if (heroSection) {
-      heroSection.addEventListener('mouseenter', stopSlideshow);
-      heroSection.addEventListener('mouseleave', startSlideshow);
-    }
+    // if (heroSection) {
+    //   heroSection.addEventListener('mouseenter', stopSlideshow);
+    //   heroSection.addEventListener('mouseleave', startSlideshow);
+    // }
   }
 
   // UI Sound Synthesizer (Web Audio API)
@@ -116,17 +116,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const AudioContext = window.AudioContext || window.webkitAudioContext;
       if (!AudioContext) return;
       const ctx = new AudioContext();
-      
+
       // High frequency mechanical click
       const clickOsc = ctx.createOscillator();
       const clickGain = ctx.createGain();
       clickOsc.type = 'sine';
       clickOsc.frequency.setValueAtTime(2500, ctx.currentTime);
       clickOsc.frequency.exponentialRampToValueAtTime(500, ctx.currentTime + 0.02);
-      
+
       clickGain.gain.setValueAtTime(0.008, ctx.currentTime);
       clickGain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.025);
-      
+
       clickOsc.connect(clickGain);
       clickGain.connect(ctx.destination);
       clickOsc.start();
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mobileCloseBtn = document.getElementById('mobileCloseBtn');
   const mobileOverlay = document.getElementById('mobileOverlay');
-  
+
   const toggleMobileMenu = () => {
     const isOpen = document.body.classList.toggle('mobile-menu-open');
     mobileMenuBtn?.classList.toggle('open', isOpen);
@@ -222,13 +222,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const allNavLinks = document.querySelectorAll(
     '.floating-links a, .mobile-menu-item, .btn-luxury-book, .navbar-nav .nav-link'
   );
-  
+
   allNavLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
       if (href && href.startsWith('#')) {
         e.preventDefault();
-        
+
         // If mobile menu is open, close it first
         if (document.body.classList.contains('mobile-menu-open')) {
           toggleMobileMenu();
