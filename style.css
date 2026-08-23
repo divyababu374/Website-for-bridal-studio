@@ -35,8 +35,58 @@ a {
   font-size: 1.25rem;
 }
 
+.navbar-logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.mobile-navbar-logo {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 0px;
+}
+
 .brand-accent {
   color: var(--gold);
+}
+
+.mobile-brand-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  line-height: 1.1;
+  transition: color 0.4s ease;
+}
+
+.mobile-top-bar.scrolled .mobile-brand-title,
+.mobile-top-bar.bright-bg .mobile-brand-title {
+  color: #1C1C1C;
+}
+
+.mobile-panel-brand-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #1C1C1C;
+  line-height: 1.1;
+}
+
+.navbar-brand .brand-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-size: 1.3rem;
 }
 
 .navbar-nav .nav-link {

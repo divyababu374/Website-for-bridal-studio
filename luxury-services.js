@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation(); // prevent modal opening/slide changing
       e.preventDefault();
       const serviceName = card.querySelector('h3').textContent.trim();
-      const message = `Hello Indhu Bridal Studio & Beauty Care,\n\nI am interested in your ${serviceName} service.\n\nCould you please share the package details, pricing and available dates?\n\nThank you.`;
+      const message = `Hello Indhu Bridal Studio,\n\nI am interested in your ${serviceName} service.\n\nCould you please share the package details, pricing and available dates?\n\nThank you.`;
       const url = `https://wa.me/919342491694?text=${encodeURIComponent(message)}`;
       window.open(url, '_blank');
     });

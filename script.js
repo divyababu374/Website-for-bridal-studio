@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       // Format WhatsApp Message
-      const message = `*🌸 INDHU BRIDAL STUDIO & BEAUTY CARE*
+      const message = `*🌸 INDHU BRIDAL STUDIO*
 
 *✨ New Booking Request from website*
 

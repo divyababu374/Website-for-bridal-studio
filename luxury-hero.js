@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const slideContent = [
     {
-      eyebrow: "INDHU BRIDAL STUDIO & BEAUTY CARE",
+      eyebrow: "INDHU BRIDAL STUDIO",
       title: "Luxury Bridal Makeup for Your Special Day",
       description: "From elegant bridal makeovers to flawless traditional styling, we create timeless looks that make every bride feel beautiful, confident, and unforgettable.",
       isBright: false
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       eyebrow: "Meet Your Bridal Artist",
-      title: "Indhu Bridal Studio & Beauty Care",
+      title: "Indhu Bridal Studio",
       description: "Serving brides with passion and professionalism, we specialize in creating elegant bridal looks that blend tradition, beauty, and confidence for your most memorable moments.",
       isBright: true
     },
