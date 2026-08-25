@@ -236,8 +236,8 @@
           <div class="gallery-item" data-index="0" data-src="images/indhuakka4.jpeg" data-caption="Classic Bridal Glow">
             <img src="images/indhuakka4.jpeg" alt="Classic Bridal Glow" loading="lazy" />
           </div>
-          <div class="gallery-item" data-index="1" data-src="images/gallery.jpeg" data-caption="Elegant Bridal Closeup">
-            <img src="images/gallery.jpeg" alt="Elegant Bridal Closeup" loading="lazy" />
+          <div class="gallery-item" data-index="1" data-src="images/newpic.jpeg" data-caption="Elegant Bridal Closeup">
+            <img src="images/newpic.jpeg" alt="Elegant Bridal Closeup" loading="lazy" />
           </div>
           <div class="gallery-item" data-index="2" data-src="images/reethu.jpeg" data-caption="Artistic Bridal Styling">
             <img src="images/reethu.jpeg" alt="Artistic Bridal Styling" loading="lazy" />
@@ -256,21 +256,38 @@
           <div class="gallery-item" data-index="6" data-src="images/gallery8.jpeg" data-caption="Gorgeous Hair Design">
             <img src="images/gallery8.jpeg" alt="Gorgeous Hair Design" loading="lazy" />
           </div>
-          <div class="gallery-item" data-index="7" data-src="images/makeup-in-progress.png"
+          <div class="gallery-item" data-index="7" data-src="images/artistwork.mp4" data-type="video" data-caption="Bridal Makeup Artistry in Progress">
+            <video src="images/artistwork.mp4" muted loop playsinline autoplay></video>
+            <div class="video-play-overlay">
+              <span class="play-icon">▶</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-index="8" data-src="images/makeup-in-progress.png"
             data-caption="Intricate Bridal Mehendi">
             <img src="images/makeup-in-progress.png" alt="Intricate Bridal Mehendi" loading="lazy" />
           </div>
-          <div class="gallery-item" data-index="8" data-src="images/mehendhi.jpeg"
+          <div class="gallery-item" data-index="9" data-src="images/mehendhi.jpeg"
             data-caption="Exquisite Saree Draping">
             <img src="images/mehendhi.jpeg" alt="Exquisite Saree Draping" loading="lazy" />
           </div>
-          <div class="gallery-item" data-index="9" data-src="images/gallery7.jpeg"
+          <div class="gallery-item" data-index="10" data-src="images/gallery7.jpeg"
             data-caption="Elegant Reception Makeup">
             <img src="images/gallery7.jpeg" alt="Elegant Reception Makeup" loading="lazy" />
           </div>
-          <div class="gallery-item" data-index="10" data-src="images/bridal-mirrpr.png"
+          <div class="gallery-item" data-index="11" data-src="images/bridal-mirrpr.png"
             data-caption="Glowing Bridal Portrait">
             <img src="images/bridal-mirrpr.png" alt="Glowing Bridal Portrait" loading="lazy" />
+          </div>
+          <div class="gallery-item" data-index="12" data-src="images/newpic.jpeg" data-caption="Chic Bridal Portrait">
+            <img src="images/newpic.jpeg" alt="Chic Bridal Portrait" loading="lazy" />
+          </div>
+          <div class="gallery-item" data-index="13" data-src="images/hairpic.jpeg"
+            data-caption="Stunning Hair Artistry">
+            <img src="images/hairpic.jpeg" alt="Stunning Hair Artistry" loading="lazy" />
+          </div>
+          <div class="gallery-item" data-index="14" data-src="images/hair-styling.jpeg"
+            data-caption="Elegant Bridal Hair Artistry">
+            <img src="images/hair-styling.jpeg" alt="Elegant Bridal Hair Artistry" loading="lazy" />
           </div>
         </div>
       </div>
@@ -283,6 +300,7 @@
         <button class="gallery-modal-nav gallery-modal-prev" id="modalPrev" aria-label="Previous image">‹</button>
         <div class="gallery-modal-stage">
           <img src="" id="modalImg" alt="Enlarged view" />
+          <video src="" id="modalVideo" controls loop playsinline style="display:none; max-width:100%; max-height:80vh; border-radius:5px; outline:none;"></video>
           <div class="gallery-modal-caption" id="modalCaption"></div>
         </div>
         <button class="gallery-modal-nav gallery-modal-next" id="modalNext" aria-label="Next image">›</button>
@@ -295,6 +313,7 @@
         const items = Array.from(galleryGrid.querySelectorAll('.gallery-item'));
         const modal = document.getElementById('galleryModal');
         const modalImg = document.getElementById('modalImg');
+        const modalVideo = document.getElementById('modalVideo');
         const modalCaption = document.getElementById('modalCaption');
         const closeBtn = document.getElementById('modalClose');
         const prevBtn = document.getElementById('modalPrev');
@@ -305,7 +324,23 @@
         function openModal(index) {
           currentIndex = index;
           const item = items[currentIndex];
-          modalImg.src = item.getAttribute('data-src');
+          const type = item.getAttribute('data-type');
+          const src = item.getAttribute('data-src');
+
+          if (type === 'video') {
+            modalImg.style.display = 'none';
+            modalImg.src = '';
+            modalVideo.style.display = 'block';
+            modalVideo.src = src;
+            modalVideo.play().catch(err => console.log("Auto-play prevented:", err));
+          } else {
+            modalVideo.style.display = 'none';
+            modalVideo.pause();
+            modalVideo.src = '';
+            modalImg.style.display = 'block';
+            modalImg.src = src;
+          }
+
           modalCaption.textContent = item.getAttribute('data-caption');
           modal.classList.add('is-open');
           document.body.style.overflow = 'hidden';
@@ -314,6 +349,9 @@
         function closeModal() {
           modal.classList.remove('is-open');
           document.body.style.overflow = '';
+          modalVideo.pause();
+          modalVideo.src = '';
+          modalImg.src = '';
         }
 
         function showNext() {
