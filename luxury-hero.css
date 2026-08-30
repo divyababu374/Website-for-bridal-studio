@@ -69,6 +69,16 @@
   padding: 1.5rem 0;
 }
 
+.top-navbar .navbar-nav .nav-link {
+  color: #FFFFFF !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.top-navbar .navbar-nav .nav-link:hover {
+  color: var(--accent-gold) !important;
+}
+
 /* Hero Content */
 .hero-content {
   position: relative;
