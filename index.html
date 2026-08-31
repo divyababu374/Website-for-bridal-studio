@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script>document.documentElement.classList.add('js-enabled');</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
@@ -154,7 +155,7 @@
             <div class="coverflow-slide">
               <div class="luxury-service-card" role="button" tabindex="0">
                 <div class="card-image-wrapper">
-                  <img src="images/bridal-look.jpeg " alt="Best Bridal Makeup Transformation" />
+                  <img src="images/bridal-look.jpeg" alt="Best Bridal Makeup Transformation" />
                 </div>
                 <div class="card-content-wrapper">
                   <h3>Bridal Makeup</h3>
@@ -403,6 +404,11 @@
             });
           }, { threshold: 0.1 });
           observer.observe(section);
+
+          // Safety timeout fallback to ensure visibility on all devices
+          setTimeout(function () {
+            section.classList.add('is-visible');
+          }, 1500);
         } else if (section) {
           section.classList.add('is-visible');
         }
@@ -451,6 +457,9 @@
             revealItems.forEach(function (item) {
               observer.observe(item);
             });
+
+            // Safety timeout fallback to ensure visibility on all devices
+            setTimeout(showRevealItems, 1500);
           } else {
             showRevealItems();
           }
@@ -523,9 +532,11 @@
               <p><strong>Address:</strong> <a href="https://maps.app.goo.gl/Qq88J6gxSbTpFt1P7" target="_blank"
                   rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Gandhi road,Police station
                   opposite,Alangayam – 635701, Tamil Nadu.</a></p>
-              <iframe title="Google Map location for Indhu Bridal Studio" class="maps-embed"
-                src="https://www.google.com/maps?q=12.623347,78.751185&z=16&output=embed" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+              <div class="map-container">
+                <iframe title="Google Map location for Indhu Bridal Studio" class="maps-embed"
+                  src="https://maps.google.com/maps?q=12.623347,78.751185&z=16&output=embed" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+              </div>
               <a href="https://maps.app.goo.gl/Qq88J6gxSbTpFt1P7" target="_blank" rel="noopener noreferrer"
                 class="btn-get-directions"> Get Directions</a>
             </div>
